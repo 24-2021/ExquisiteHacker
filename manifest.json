@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "ExquisiteHacker",
+    "version": "1.96",
+    "description": "让你做一个精致的黑客 by 24",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon-16.png",
+            "48": "icon-48.png",
+            "128": "icon-128.png"
+        },
+        "default_popup_options": {
+            "height": 600,
+            "width": 800
+        }
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "icons": {
+        "16": "icon-16.png",
+        "48": "icon-48.png",
+        "128": "icon-128.png"
+    }
+}
+
+
+

